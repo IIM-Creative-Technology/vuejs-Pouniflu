@@ -1,9 +1,15 @@
 <template>
-  <div id="article-list" v-for="article in articles" :key="article">
-    <img :src="img" alt="image de base">
-    <p>{{ article.title }}</p>
-    <button><i class="fas fa-edit"></i></button>
-    <button><i class="fas fa-trash"></i></button>
+  <div v-for="article in articles" :id="'id' + articles.indexOf(article)" :key="article">
+    <div v-if="$route.name != 'ModificateArticle'" id="article-list">
+        <img :src="img" alt="image de base">
+        <p>{{ article.title }}</p>
+        <p>{{ article.id }}</p>
+        <router-link :to="'/admin' + articles.indexOf(article)"><i class="fas fa-edit"></i></router-link>
+        <button><i class="fas fa-trash"></i></button>
+    </div>
+    <div v-if="$route.params.id == articles.indexOf(article)">
+        <router-view />
+    </div>
   </div>
 </template>
 
@@ -47,29 +53,30 @@ img{
 
 p {
     margin: 0 40px;
-    min-width: 70%;
+    min-width: 30%;
 }
 
-button{
+button, a{
+    cursor: pointer;
     width: 50px;
     height: 30px;
     border: none;
     margin: 0 5px;
 }
 
-button:first-of-type{
+a{
     background-color: rgb(212, 212, 212);
 }
 
-button:first-of-type:hover{
+a:hover{
     background-color: rgb(134, 134, 134);
 }
 
-button:last-of-type{
+button{
     background-color: rgb(221, 0, 0);
 }
 
-button:last-of-type:hover{
+button:hover{
     background-color: rgb(255, 0, 0);
 }
 </style>

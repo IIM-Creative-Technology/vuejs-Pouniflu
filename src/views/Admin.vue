@@ -19,7 +19,7 @@ export default {
     name: 'Home',
     components: {
         ArticleList,
-        CreateArticle
+        CreateArticle,
     },
     computed: {
         ...mapState(['articles'])
