@@ -1,7 +1,7 @@
 <template>
-  <div id="article-list">
+  <div id="article-list" v-for="article in articles" :key="article">
     <img :src="img" alt="image de base">
-    <p>{{ text }}</p>
+    <p>{{ article.title }}</p>
     <button><i class="fas fa-edit"></i></button>
     <button><i class="fas fa-trash"></i></button>
   </div>
@@ -12,6 +12,15 @@ import { mapState } from 'vuex'
 
 export default {
     name: 'article-list',
+    props: {
+        articles: {
+            type: Array,
+            default: () => []
+        },
+        title : {
+          type : String
+        }
+    },
     computed: {
         ...mapState(['img', 'text'])
     }
@@ -38,6 +47,7 @@ img{
 
 p {
     margin: 0 40px;
+    min-width: 70%;
 }
 
 button{
