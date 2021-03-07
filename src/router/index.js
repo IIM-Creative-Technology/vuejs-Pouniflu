@@ -12,12 +12,12 @@ const routes = [
   {
     path: '/admin',
     name: 'Admin',
-    children: {
+    children: [{
       props: true,
-      path: '/admin:id',
+      path: '/admin/:id',
       name: 'ModificateArticle',
       component: ModificateArticle
-    },
+    }],
     component: () => import('../views/Admin.vue')
   },
   {

@@ -1,10 +1,10 @@
 <template>
   <div v-for="article in articles" :id="'id' + articles.indexOf(article)" :key="article">
-    <div v-if="$route.name != 'ModificateArticle'" id="article-list">
+    <div id="article-list">
         <img :src="img" alt="image de base">
         <p>{{ article.title }}</p>
         <p>{{ article.id }}</p>
-        <router-link :to="'/admin' + articles.indexOf(article)"><i class="fas fa-edit"></i></router-link>
+        <router-link :to="'/admin/' + articles.indexOf(article)"><i class="fas fa-edit"></i></router-link>
         <button><i class="fas fa-trash"></i></button>
     </div>
     <div v-if="$route.params.id == articles.indexOf(article)">
