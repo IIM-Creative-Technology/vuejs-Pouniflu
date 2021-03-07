@@ -17,7 +17,7 @@
         <label for="">Corps du post</label>
         <input type="text" v-model="description">
     </div>
-    <router-link to="/admin" id="admin-button-create" @click="sendArticle([title, metaTitle, metaDescription, description])">Create Article</router-link>
+    <router-link to="/admin" id="admin-button-create" @click="sendArticle({title: title, metaTitle: metaTitle, metaDescription: metaDescription, description: description})">Create Article</router-link>
   </div>
 </template>
 

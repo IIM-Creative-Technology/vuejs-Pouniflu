@@ -2,10 +2,10 @@
     <div class="admin">
         <div v-if="$route.name != 'CreateArticle'">
             <router-link to="/create-an-article" id="admin-button-article">Create Article</router-link>
-            <ArticleList />
+            <ArticleList/>
         </div>
         <div v-else>
-            <CreateArticle />
+            <CreateArticle @newArticle="addArticle"/>
         </div>
     </div>
 </template>
@@ -13,12 +13,21 @@
 <script>
 import ArticleList from '@/components/ArticleList.vue'
 import CreateArticle from '@/components/CreateArticle.vue'
+import { mapState } from 'vuex'
 
 export default {
     name: 'Home',
     components: {
         ArticleList,
         CreateArticle
+    },
+    computed: {
+        ...mapState(['articles'])
+    },
+    methods: {
+        addArticle(article) {
+            this.articles.push(article);
+        }
     }
 }
 </script>
