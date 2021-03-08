@@ -1,3 +1,4 @@
+
 import { createStore } from 'vuex'
 
 export default createStore({
@@ -7,8 +8,30 @@ export default createStore({
     articles: []
   },
   mutations: {
+    CREATE_ARTICLE(state, payload) {
+      state.articles.push(payload)
+    },
+
+    // UPDATE_ARTICLE(state, payload){
+    //   state.articles.push(payload)
+    // }
+
+    DELETE_ARTICLE(state, payload) {
+      state.articles.splice(payload, 1)
+    }
   },
   actions: {
+    addArticle(context, payload) {
+      context.commit('CREATE_ARTICLE', payload)
+    },
+
+    deleteArticle(context, payload) {
+      context.commit('DELETE_ARTICLE', payload)
+    }
+
+    // updateArticle(context, payload) {
+    //   context.commit('UPDATE_ARTICLE', payload)
+    // }
   },
   modules: {
   }
