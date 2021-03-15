@@ -1,15 +1,17 @@
 <template>
-  <div v-for="article in articles" :id="'id' + articles.indexOf(article)" :key="article">
-    <div id="article-list">
-        <img :src="img" alt="image de base">
-        <p>{{ article.title }}</p>
-        <p>{{ article.id }}</p>
-        <router-link :to="'/admin/' + articles.indexOf(article)"><i class="fas fa-edit"></i></router-link>
-        <button @click="deleteArticle(articles.indexOf(article))"><i class="fas fa-trash"></i></button>
-    </div>
-    <div v-if="$route.params.id == articles.indexOf(article)" id="test">
-        <router-view v-bind:article="article" />
-    </div>
+  <div v-for="article in articles" :id="'id' + articles.indexOf(article)" :key="article" class="article-list">
+      <div>
+        <div id="article-list">
+            <img :src="img" alt="image de base">
+            <p>{{ article.title }}</p>
+            <p>{{ article.description }}</p>
+            <router-link :to="'/admin/' + articles.indexOf(article)"><i class="fas fa-edit"></i></router-link>
+            <button @click="deleteArticle(articles.indexOf(article))"><i class="fas fa-trash"></i></button>
+        </div>
+        <div v-if="$route.params.id == articles.indexOf(article)" id="article-edition">
+            <router-view v-bind:article="article" />
+        </div>
+      </div>
   </div>
 </template>
 
@@ -42,29 +44,50 @@ export default {
 #article-list {
     display: flex;
     align-items: center;
-    width: 80%;
     margin: 0 auto 3vh;
     padding: 20px 20px;
     border: 1px solid rgb(161, 161, 161);
+}
+
+#article-edition {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4vh;
 }
 </style>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+div:first-of-type {
+    display: flex;
+    justify-content: space-between;
+}
+
+.article-list>div {
+    width: 100%;
+}
+
+.article-list>div>div {
+    width: 50%;
+}
+
+
+
 img{
     width: 20vh;
     height: auto;
 }
 
 p {
-    margin: 0 40px;
+    margin: 0 5px;
     min-width: 30%;
 }
 
 button, a{
     cursor: pointer;
-    width: 50px;
-    height: 30px;
+    width: 10vw;
+    height: 5vh;
     border: none;
     margin: 0 5px;
 }

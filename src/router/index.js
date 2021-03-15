@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Blog from '../views/Blog.vue'
 //import Admin from '../views/Admin.vue'
-import ModificateArticle from '../components/ModificateArticle.vue'
+import EditArticle from '../components/EditArticle.vue'
 
 const routes = [
   {
@@ -15,8 +15,8 @@ const routes = [
     children: [{
       props: true,
       path: '/admin/:id',
-      name: 'ModificateArticle',
-      component: ModificateArticle
+      name: 'EditArticle',
+      component: EditArticle
     }],
     component: () => import('../views/Admin.vue')
   },
