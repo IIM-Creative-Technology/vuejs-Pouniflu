@@ -5,7 +5,7 @@
             <ArticleList v-bind:articles="articles"/>
         </div>
         <div v-else>
-            <CreateArticle @newArticle="addArticle"/>
+            <CreateArticle/>
         </div>
     </div>
 </template>
@@ -23,11 +23,6 @@ export default {
     },
     computed: {
         ...mapState(['articles'])
-    },
-    methods: {
-        addArticle(article) {
-            this.articles.push(article);
-        }
     }
 }
 </script>

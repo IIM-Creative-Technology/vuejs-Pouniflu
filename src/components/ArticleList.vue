@@ -5,10 +5,10 @@
         <p>{{ article.title }}</p>
         <p>{{ article.id }}</p>
         <router-link :to="'/admin/' + articles.indexOf(article)"><i class="fas fa-edit"></i></router-link>
-        <button><i class="fas fa-trash"></i></button>
+        <button @click="deleteArticle(articles.indexOf(article))"><i class="fas fa-trash"></i></button>
     </div>
-    <div v-if="$route.params.id == articles.indexOf(article)">
-        <router-view />
+    <div v-if="$route.params.id == articles.indexOf(article)" id="test">
+        <router-view v-bind:article="article" />
     </div>
   </div>
 </template>
@@ -29,6 +29,11 @@ export default {
     },
     computed: {
         ...mapState(['img', 'text'])
+    },
+    methods: {
+        deleteArticle: function(article) {
+            this.$store.dispatch('deleteArticle', article)
+        }
     }
 }
 </script>

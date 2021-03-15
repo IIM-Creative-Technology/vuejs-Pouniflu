@@ -21,7 +21,7 @@ export default createStore({
     }
   },
   actions: {
-    addArticle(context, payload) {
+    createArticle(context, payload) {
       context.commit('CREATE_ARTICLE', payload)
     },
 

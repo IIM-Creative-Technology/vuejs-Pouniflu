@@ -30,8 +30,8 @@ export default {
         ...mapState(['img', 'text'])
     },
     methods: {
-        sendArticle: function(article) {
-            this.$emit('newArticle', article)
+        sendArticle(article) {
+            this.$store.dispatch('createArticle', article)
         }
     }
 }
