@@ -20,7 +20,7 @@ export default createStore({
     },
 
     // UPDATE_ARTICLE(state, payload){
-    //   state.articles.push(payload)
+    //   state.articles.slice(payload)
     // }
 
     DELETE_ARTICLE(state, payload) {

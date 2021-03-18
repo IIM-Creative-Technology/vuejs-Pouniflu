@@ -4,9 +4,15 @@
         <div id="article-list">
             <img :src="img" alt="image de base">
             <p>{{ article.title }}</p>
-            <p>{{ article.description }}</p>
-            <router-link :to="'/admin/' + articles.indexOf(article)"><i class="fas fa-edit"></i></router-link>
-            <button @click="deleteArticle(articles.indexOf(article))"><i class="fas fa-trash"></i></button>
+            <p v-if="$route.name != 'Admin'">{{ article.metaDescription }}</p>
+            <p v-if="$route.name != 'Blog'">{{ article.description }}</p>
+            <div v-if="$route.name != 'Blog'">
+                <router-link :to="'/admin/' + articles.indexOf(article)"><i class="fas fa-edit"></i></router-link>
+                <button @click="deleteArticle(articles.indexOf(article))"><i class="fas fa-trash"></i></button>
+            </div>
+            <div v-if="$route.name != 'Admin'">
+                <router-link :to="'/blog/' + articles.indexOf(article)"><i class="fas fa-edit"></i></router-link>
+            </div>
         </div>
         <div v-if="$route.params.id == articles.indexOf(article)" id="article-edition">
             <router-view v-bind:article="article" />
@@ -86,7 +92,7 @@ p {
 
 button, a{
     cursor: pointer;
-    width: 10vw;
+    width: 3vw;
     height: 5vh;
     border: none;
     margin: 0 5px;
