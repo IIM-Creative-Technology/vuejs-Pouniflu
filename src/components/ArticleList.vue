@@ -2,7 +2,7 @@
     <div v-for="article in articles" :id="'id' + articles.indexOf(article)" :key="article" class="article-list">
 
         <!-- If url is not /blog -->
-        <div v-if="$route.name != 'Blog'">
+        <div v-if="$route.name != 'Blog' && $route.params.title == null">
             <div id="article-list">
                 <img :src="img" alt="image de base">
                 <p>{{ article.title }}</p>
@@ -13,10 +13,16 @@
                 </div>
             </div>
             <div v-if="$route.params.id == articles.indexOf(article)" id="article-edition">
-                <router-view v-bind:article="article" />
+                <router-view :article="article" />
             </div>
         </div>
 
+        <!-- If you want to display a single post -->
+        <div v-else-if="$route.params.title == article.title">
+            <router-view :article="article" />
+        </div>
+
+        <!-- If you want to display all the post in /blog  -->
         <div v-else>
             <div id="article-list">
                 <img :src="img" alt="image de base">
