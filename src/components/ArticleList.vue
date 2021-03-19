@@ -1,24 +1,33 @@
 <template>
-  <div v-for="article in articles" :id="'id' + articles.indexOf(article)" :key="article" class="article-list">
-      <div>
-        <div id="article-list">
-            <img :src="img" alt="image de base">
-            <p>{{ article.title }}</p>
-            <p v-if="$route.name != 'Admin'">{{ article.metaDescription }}</p>
-            <p v-if="$route.name != 'Blog'">{{ article.description }}</p>
-            <div v-if="$route.name != 'Blog'">
-                <router-link :to="'/admin/' + articles.indexOf(article)"><i class="fas fa-edit"></i></router-link>
-                <button @click="deleteArticle(articles.indexOf(article))"><i class="fas fa-trash"></i></button>
+    <div v-for="article in articles" :id="'id' + articles.indexOf(article)" :key="article" class="article-list">
+
+        <!-- If url is not /blog -->
+        <div v-if="$route.name != 'Blog'">
+            <div id="article-list">
+                <img :src="img" alt="image de base">
+                <p>{{ article.title }}</p>
+                <p >{{ article.description }}</p>
+                <div>
+                    <router-link :to="'/admin/' + articles.indexOf(article)"><i class="fas fa-edit"></i></router-link>
+                    <button @click="deleteArticle(articles.indexOf(article))"><i class="fas fa-trash"></i></button>
+                </div>
             </div>
-            <div v-if="$route.name != 'Admin'">
-                <router-link :to="'/blog/' + articles.indexOf(article)"><i class="fas fa-edit"></i></router-link>
+            <div v-if="$route.params.id == articles.indexOf(article)" id="article-edition">
+                <router-view v-bind:article="article" />
             </div>
         </div>
-        <div v-if="$route.params.id == articles.indexOf(article)" id="article-edition">
-            <router-view v-bind:article="article" />
+
+        <div v-else>
+            <div id="article-list">
+                <img :src="img" alt="image de base">
+                <p>{{ article.title }}</p>
+                <p>{{ article.metaDescription }}</p>
+                <div>
+                    <router-link :to="'/blog/' + articles.indexOf(article)"><i class="fas fa-edit"></i></router-link>
+                </div>
+            </div>
         </div>
-      </div>
-  </div>
+    </div>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
     <div class="admin">
-        <div v-if="$route.name = 'Blog'">
+        <div v-if="$route.params.id == null">
             <ArticleList v-bind:articles="articles"/>
         </div>
         <div v-else>
