@@ -2,20 +2,20 @@
   <div id="create-article">
     <h2>Créer une nouvelle page du blog</h2>
     <div>
-        <label for="">Titre de la page</label>
-        <input type="text" v-model="title">
-        <label for="">Meta Title</label>
-        <input type="text" v-model="metaTitle">
-        <label for="">Meta Description</label>
-        <input type="text" v-model="metaDescription">
+        <label for="title">Titre de la page</label>
+        <input type="text" id="title" v-model="title">
+        <label for="metaTitle">Meta Title</label>
+        <input type="text" id="metaTitle" v-model="metaTitle">
+        <label for="metaDescription">Meta Description</label>
+        <input type="text" id="metaDescription" v-model="metaDescription">
     </div>
     <div>
         <img :src="img" alt="#">
-        <p>Ajouter une image</p>
+        <input type="file" accept="image/png, image/jpeg">
     </div>
     <div>
-        <label for="">Corps du post</label>
-        <input type="text" v-model="description">
+        <label for="corps">Corps du post</label>
+        <input type="text" id="corps" v-model="description">
     </div>
     <router-link to="/admin" id="admin-button-create" @click="sendArticle({title: title, metaTitle: metaTitle, metaDescription: metaDescription, description: description})">Create Article</router-link>
   </div>

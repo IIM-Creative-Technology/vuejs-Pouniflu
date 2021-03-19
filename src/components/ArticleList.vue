@@ -23,7 +23,7 @@
         </div>
 
         <!-- If you want to display all the post in /blog  -->
-        <div v-else>
+        <div v-else-if="$route.params.title == null">
             <div id="article-list">
                 <img :src="img" alt="image de base">
                 <p>{{ article.title }}</p>
