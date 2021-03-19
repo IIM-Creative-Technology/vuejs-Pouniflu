@@ -8,7 +8,7 @@ const routes = [
     name: 'Blog',
     children: [{
       props: true,
-      path: '/blog/:id',
+      path: '/blog/:title',
       name: 'SingleArticle',
       component: SingleArticle
     }],

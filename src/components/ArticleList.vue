@@ -23,7 +23,7 @@
                 <p>{{ article.title }}</p>
                 <p>{{ article.metaDescription }}</p>
                 <div>
-                    <router-link :to="'/blog/' + articles.indexOf(article)"><i class="fas fa-edit"></i></router-link>
+                    <router-link :to="'/blog/' + article.title"><i class="fas fa-edit"></i></router-link>
                 </div>
             </div>
         </div>
