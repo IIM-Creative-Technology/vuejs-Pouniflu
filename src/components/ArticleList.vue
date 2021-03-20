@@ -7,7 +7,6 @@
                 <img :src="img" alt="image de base">
                 <p>{{ article.title }}</p>
                 <p >{{ article.description }}</p>
-                <p >{{ article.date }}</p>
                 <div>
                     <router-link :to="'/admin/' + articles.indexOf(article)"><i class="fas fa-edit"></i></router-link>
                     <button @click="deleteArticle(articles.indexOf(article))"><i class="fas fa-trash"></i></button>
