@@ -5,7 +5,10 @@
             <h2>{{ article.title }}</h2>
         </div>
         <p>{{ article.description }}</p>
-        <p>Posté le {{ article.date }}</p>
+        <div>
+            <p>Posté le {{ article.date }}</p>
+            <p>Par {{ article.author }}</p>
+        </div>
     </article>
 </template>
 
@@ -31,7 +34,7 @@ article img {
     border-radius: 20px;
 }
 
-article div {
+article div:first-of-type {
     width: 90vw;
     display: flex;
     flex-direction: column;
@@ -39,7 +42,12 @@ article div {
     justify-content: center;
 }
 
-article p:last-child{
+article div:last-of-type{
+    display: flex;
+    justify-content: space-between;
+}
+
+article div:last-of-type p:first-of-type{
     margin-top: 5vh;
     font-style: italic;
 }

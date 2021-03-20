@@ -14,6 +14,7 @@ export default createStore({
         metaDescription: "Ce film est un film Ghibli", 
         description: "Haru est une jeune lycéenne de 17 ans pleine de doutes qui ne trouve pas sa place au milieu des autres. Sa vie bascule le jour où, sur le chemin du retour du lycée avec sa meilleure amie Hiromi, elle sauve la vie d'un chat qui manque d'être écrasé par un camion.",
         date: "9 Mars",
+        author: "Michel DUPRES",
       }
     ]
   },

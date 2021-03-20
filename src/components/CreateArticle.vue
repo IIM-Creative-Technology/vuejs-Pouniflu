@@ -8,6 +8,8 @@
         <input type="text" id="metaTitle" v-model="metaTitle">
         <label for="metaDescription">Meta Description</label>
         <input type="text" id="metaDescription" v-model="metaDescription">
+        <label for="author">Auteur</label>
+        <input type="text" id="author" v-model="author">
     </div>
     <div>
         <img :src="img" alt="#">
@@ -39,6 +41,7 @@ export default {
                 metaDescription: this.metaDescription,
                 description: this.description,
                 date: this.date,
+                author: this.author,
             }
             this.$store.dispatch('createArticle', article)
         }
