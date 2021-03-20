@@ -5,7 +5,7 @@
             <h2>{{ article.title }}</h2>
         </div>
         <p>{{ article.description }}</p>
-        <p>Posté le 3 mars 2021</p>
+        <p>Posté le {{ article.date }}</p>
     </article>
 </template>
 

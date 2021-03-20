@@ -2,7 +2,7 @@
     <div class="admin">
         <div v-if="$route.name != 'CreateArticle'">
             <router-link to="/create-an-article" id="admin-button-article">Create Article</router-link>
-            <ArticleList v-bind:articles="articles"/>
+            <ArticleList :articles="articles"/>
         </div>
         <div v-else>
             <CreateArticle/>

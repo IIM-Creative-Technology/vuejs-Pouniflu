@@ -17,20 +17,29 @@
         <label for="corps">Corps du post</label>
         <input type="text" id="corps" v-model="description">
     </div>
-    <router-link to="/admin" id="admin-button-create" @click="sendArticle({title: title, metaTitle: metaTitle, metaDescription: metaDescription, description: description})">Create Article</router-link>
+    <router-link to="/admin" id="admin-button-create" @click="sendArticle()">Create Article</router-link>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
     name: 'create-article',
     computed: {
-        ...mapState(['img', 'text'])
+        ...mapState(['img', 'text']),
+        ...mapGetters(['date'])
     },
     methods: {
-        sendArticle(article) {
+        sendArticle() {
+            const article = {
+                title: this.title,
+                metaTitle: this.metaTitle,
+                metaDescription: this.metaDescription,
+                description: this.description,
+                date: this.date,
+            }
             this.$store.dispatch('createArticle', article)
         }
     }
