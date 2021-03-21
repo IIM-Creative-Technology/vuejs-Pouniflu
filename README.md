@@ -1,9 +1,13 @@
-# vuejs-dm
+# Vue.JS Work - A2 DW2 2021
+## Getting Started
+### Prerequisites
 
-## Project setup
-```
-npm install
-```
+To install the project, you need :
+* npm
+
+### Installation
+
+Execute `npm install` to install the dependencies.
 
 ### Compiles and hot-reloads for development
 ```
@@ -20,5 +24,12 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Realization
+### Built with
+
+* @vue/cli 4.5.11
+* Visual Studio Code
+
+### Author
+
+Claire BRISBART, second year student at [IIM Digital School de Vinci Paris](https://www.iim.fr).
